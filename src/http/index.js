@@ -6,11 +6,10 @@ import user_route from "../http/routes/user_route.js";
 import wallet_route from "../http/routes/wallet_route.js";
 import authenticateToken from "./middlewares/user_auth.js";
 
-app.use(authenticateToken);
-
 const app = e();
 const port = process.env.PORT || 4000;
 
+app.use(authenticateToken);
 app.use(e.json());
 
 app.use("/transaction", transaction_route);
