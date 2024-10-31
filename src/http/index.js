@@ -3,7 +3,10 @@ import "../database/conn.js";
 import e from "express";
 import transaction_route from "../http/routes/transaction_route.js";
 import user_route from "../http/routes/user_route.js";
-import wallet_route from "../http/routes/wallet_route.js"
+import wallet_route from "../http/routes/wallet_route.js";
+import authenticateToken from "./middlewares/user_auth.js";
+
+app.use(authenticateToken);
 
 const app = e();
 const port = process.env.PORT || 4000;
